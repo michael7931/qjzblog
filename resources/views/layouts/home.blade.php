@@ -175,7 +175,7 @@
             <ul>
 
                 <li class="text-center">
-                    Copyright © 2016-2018 <a href="qujiazhen.com">qujiazhen.com</a>  All Right Reserived @if(!empty($config['WEB_ICP_NUMBER'])) ICP证：{{ $config['WEB_ICP_NUMBER'] }} @endif
+                    Copyright © 2016-2018 <a href="#">qujiazhen.com</a>  All Right Reserived @if(!empty($config['WEB_ICP_NUMBER'])) ICP证：{{ $config['WEB_ICP_NUMBER'] }} @endif
                 </li>
                 <li class="text-center">
                     <a rel="nofollow" href="https://github.com/michael7931/qjzblog.git" target="_blank">免费开源博客</a>
