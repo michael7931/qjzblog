@@ -3,10 +3,6 @@
 /public/storage
 /storage/*.key
 
-/storage/framework/views
-/storage/framework/sessions
-
-
 /vendor
 /.idea
 /.vagrant
