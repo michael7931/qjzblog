@@ -30,12 +30,7 @@
             </button>
             <a class="navbar-brand" href="/" onclick="recordId('/',0)">
                 <div class="hidden-xs b-nav-background"></div>
-                <ul class="b-logo-code">
-                    <li class="b-lc-start">&lt;?php</li>
-                    <li class="b-lc-echo">echo</li>
-                </ul>
                 <p class="b-logo-word">'{{ $config['WEB_NAME'] }}'</p>
-                <p class="b-logo-end">;</p>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
