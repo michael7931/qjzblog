@@ -30,7 +30,7 @@
             </button>
             <a class="navbar-brand" href="/" onclick="recordId('/',0)">
                 <div class="hidden-xs b-nav-background"></div>
-                <p class="b-logo-word">'{{ $config['WEB_NAME'] }}'</p>
+                <p class="b-logo-word">{{ $config['WEB_NAME'] }}</p>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
