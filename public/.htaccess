@@ -4,6 +4,8 @@
     </IfModule>
 
     RewriteEngine On
+    RewriteCond %{http_host} ^qujiazhen.com [NC]
+    RewriteRule ^(.*)$ http://www.qujiazhen.com/$1 [L,R=301]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
