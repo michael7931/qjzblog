@@ -37,7 +37,7 @@
             <ul class="nav navbar-nav b-nav-parent">
                 <li class="hidden-xs b-nav-mobile"></li>
                 <li class="b-nav-cname  @if($category_id == 'index') b-nav-active @endif">
-                <a href="/" onclick="recordId('/',0)">首页1</a>
+                <a href="/" onclick="recordId('/',0)">首页12</a>
                 </li>
                 @foreach($category as $v)
                     <li class="b-nav-cname @if($v->id == $category_id) b-nav-active @endif">
