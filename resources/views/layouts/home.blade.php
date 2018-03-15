@@ -84,7 +84,7 @@
                 <h4 class="b-title">加入组织</h4>
                 <ul class="b-all-tname">
                     <li class="b-qun-or-code">
-                        <img src="{{ asset($config['QQ_QUN_OR_CODE']) }}" alt="QQ">
+                        <img src="{{ asset($config['QQ_QUN_OR_CODE']) }}" alt="QQ" style="width:150px; height:150px;">
                     </li>
                     <li class="b-qun-word">
                         <p class="b-qun-nuber">
