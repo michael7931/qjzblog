@@ -76,6 +76,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
 });
 
+Route::get('/madmin', function(){
+    return redirect('/admin/index/index');
+});
 
 // Admin 模块
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admin.auth'], function () {

@@ -19,5 +19,3 @@ _ide_helper.php
 /public/Demo/*
 phpunit.dusk.xml
 public/favicon.ico
-
-robots.txt
