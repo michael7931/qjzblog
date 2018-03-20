@@ -47,6 +47,52 @@
         h2 a:hover{
             background-color: transparent !important;
         }
+        .navbar .nav > li > a {
+            font-size: 16px;
+            font-weight: 600;
+            border:0;
+        }
+        .navbar .nav >li > a:hover{
+            color: #1999ec !important;
+        }
+        .navbar .nav .active >a{
+            color: #1999ec !important;
+        }
+        .b-head_img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 60px;
+        }
+        .navbar-inner{
+            /*background-color: #111 !important;*/
+            box-shadow: 0 0 10px 1px;
+        }
+        .b-search-text{
+            background-color: transparent;
+            border:1px solid grey;
+        }
+        .b-search-submit{
+            background-color: transparent;
+            border:1px solid grey;
+            color: black;
+            font-weight: 600;
+            background-color: #1999ec;
+        }
+        .b-nickname{
+            font-weight: 600;
+            font-size: 18px;
+            color: #111;
+        }
+        .b-log a{
+            font-weight: 600;
+            padding: 5px 10px;
+            color: #1999ec;
+        }
+        .b-log a:hover{
+            color: white;
+            border-radius: 5px;
+        }
         
     </style>
 </head>
@@ -68,34 +114,40 @@
                             <img src="{{ asset('images/nice.png') }}" alt="logo" width="35px;">
                         </a>
                     </div>
-                    <nav>
-                        <ul class="nav">
-                            <li>
-                                <a href="#" class="animsition-link">叶落山城秋</a>
+                    <nav style="width: 100%;">
+                        <ul class="nav" style="float: left;width: auto;">
+                            <li class="active">
+                                <a href="/" onclick="recordId('/',0)">Home</a>
                             </li>
-
-                            <li>
-                                <a href="#" title="Github" target="_blank">
-                                    <i class="icon-github"></i>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" title="Sina-Weibo" target="_blank">
-                                    <i class="icon-sina-weibo"></i>
-                                </a>
-                            </li>
-
-                            <li class="nolink">
-                                <span>
-                                    <a href="#">给我留言</a>
-                                </span>
-                            </li>
-                            <li class="nolink">
-                                <span>Welcome!</span>
-                            </li>
-
+                             @foreach($category as $v)
+                           <li>
+                               <a href="{{ url('category/'.$v->id) }}" onclick="return recordId('cid', '{{ $v->id }}')">{{ $v->name }}</a>
+                           </li>
+                           @endforeach
                         </ul>
+                        <!-- 搜索功能以及登陸 -->
+                    <div style="float: right;">
+                        <div style="display: inline-block;line-height: 60px;">
+                            <form class="form-inline"  role="form" action="{{ url('search') }}" method="get">
+                                <input class="b-search-text" type="text" name="wd">
+                                <input class="b-search-submit" type="submit" value=" 搜索 ">
+                            </form>
+                        </div>
+                        <!-- 登陸 -->
+                        <ul style="display: inline-block;line-height: 60px;margin-left: 20px;">
+                            @if(empty(session('user.name')))
+                            <li>
+                                <a href="javascript:;" onclick="login()">登录</a>
+                            </li>
+                            @else
+                            <li>
+                                <span><img class="b-head_img" src="{{ session('user.avatar') }}" alt="{{ session('user.name') }}" title="{{ session('user.name') }}"  /></span>
+                                <span class="b-nickname">{{ session('user.name') }}</span>
+                                <span class="b-log"><a href="{{ url('auth/oauth/logout') }}">退出</a></span>
+                            </li>
+                            @endif
+                        </ul>
+                    </div>
                     </nav>
                 </div>
                 <div class="learnmore sb-toggle-right">More</div>
@@ -179,7 +231,7 @@
                         </ul>
                       </div>
                     </div>
-                  </div>
+                </div>
             </div>
         </section>
     </div>
@@ -205,7 +257,7 @@
           </div>
         </div>
       </footer> -->
-
+    <script src="{{ asset('js/home/script2.js') }}"></script>
     <!-- Resizable 'on-demand' full-height hero -->
     <script type="text/javascript">
 

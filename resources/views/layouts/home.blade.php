@@ -22,14 +22,20 @@
     <script src="{{ asset('js/home/jquery.js') }}"></script>
     <script src="{{ asset('js/home/plugins.js') }}"></script>
     <script src="{{ asset('js/home/jquery_003.js') }}"></script>
-    <script src="{{ asset('js/home/scripts.js') }}"></script>
+    <!-- <script src="{{ asset('js/home/scripts.js') }}"></script> -->
     <script src="{{ asset('js/home/jquery_002.js') }}"></script>
     @yield('css')
 </head>
+<style type="text/css">
+    .b-login-img a:hover{
+        background-color: transparent !important;
+    }
+</style>
 <body>
     @yield('content')
     <!-- 左侧sidebar部分开始 -->
     <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling" style="margin-right: -252.533px;">
+        <img src="http://qiniu.biteabc.com/me_top_bg.jpg" style="width: 100%;height: auto;">
         <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
             <img src="{{ asset('images/close.png') }}" alt="Close">
         </div>
@@ -44,433 +50,37 @@
                     <span class="sb-caret"></span>
                 </a>
                 <ul class="sb-submenu">
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            关于
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            Laravel
-                            <small>(28)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            PHP
-                            <small>(32)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            框架
-                            <small>(7)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            Linux
-                            <small>(18)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            Nodejs
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            缓存
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            redis
-                            <small>(4)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            composer
-                            <small>(4)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            ubuntu
-                            <small>(7)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            Git
-                            <small>(6)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            MySQL
-                            <small>(14)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            Vagrant
-                            <small>(3)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            twig
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            前端
-                            <small>(7)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            CURL
-                            <small>(3)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            LNMP
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            nginx
-                            <small>(2)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            mongodb
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            ThinkPHP
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            JavaScript
-                            <small>(2)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            插件
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            https
-                            <small>(2)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            websocket
-                            <small>(2)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            HTTP
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            swoole
-                            <small>(2)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            状态码
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            PDO
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            队列
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            phphub
-                            <small>(2)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            React
-                            <small>(2)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            GO
-                            <small>(4)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            微信小程序
-                            <small>(2)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            Vue
-                            <small>(6)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            iView
-                            <small>(4)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            ElementUI
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            Docker
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            微信
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            wechat
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            微信开发
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            微信公众号
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            beego
-                            <small>(1)</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_BLANK" class="animsition-link">
-                            postgresql
-                            <small>(1)</small>
-                        </a>
-                    </li>
-
+                    <?php $tag_i = 0; ?>
+                    @foreach($tag as $v)
+                        <?php $tag_i++; ?>
+                        <?php $tag_i=$tag_i==5?1:$tag_i; ?>
+                        <li>
+                            <a class="tstyle-{{ $tag_i }}" href="{{ url('tag', [$v->id]) }}" onclick="return recordId('tid','{{ $v->id }}')" target="_blank">{{ $v->name }} ({{ $v->articles_count }})</a>
+                        </li>
+                    @endforeach
                 </ul>
             </li>
-
             <li>
                 <a class="sb-toggle-submenu">Categories
                     <span class="sb-caret"></span>
                 </a>
-
                 <ul class="sb-submenu">
+                    @foreach($category as $v)
                     <li>
-                        <a href="#" class="animsition-link">测试分类</a>
+                        <a href="{{ url('category/'.$v->id) }}" onclick="return recordId('cid', '{{ $v->id }}')" target="_blank">{{ $v->name }}</a>
                     </li>
-                    <li>
-                        <a href="#" class="animsition-link">前端</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-Twig</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-JavaScript</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-React</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-Vue</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--iView</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">PHP</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-基础知识</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-PHP框架</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--Laravel</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--ThinkPHP</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-PHP扩展</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--CURL</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--swoole</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">IDE</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">Linux</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-ubuntu</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-nginx</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">缓存</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-Redis</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">composer</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">Git</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-Github</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">数据库</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-MySQL</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">Vagrant</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">协议</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-https</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">社区</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">GO</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-GO基础知识</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">&nbsp;&nbsp;&nbsp;&nbsp;|-beego</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">微信小程序</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">Docker</a>
-                    </li>
-                    <li>
-                        <a href="#" class="animsition-link">wechat</a>
-                    </li>
-
+                    @endforeach
                 </ul>
-
             </li>
-
-
             <li>
                 <a class="sb-toggle-submenu">Links
                     <span class="sb-caret"></span>
                 </a>
                 <ul class="sb-submenu">
-                    <li>
-                        <a href="#" target="_blank" class="link">叶落山城</a>
-                    </li>
-                    <li>
-                        <a href="#" target="_blank" class="link"> kieran</a>
-                    </li>
-                    <li>
-                        <a href="#" target="_blank" class="link">小强在线</a>
-                    </li>
-                    <li>
-                        <a href="#" target="_blank" class="link">phphub社区</a>
-                    </li>
-                    <li>
-                        <a href="#" target="_blank" class="link">程序人生</a>
-                    </li>
-                    <li>
-                        <a href="#" target="_blank" class="link">Web开发者</a>
-                    </li>
-                    <li>
-                        <a href="#" target="_blank" class="link">Xcat Liu's Blog</a>
-                    </li>
-                    <li>
-                        <a href="#" target="_blank" class="link">前端网-web前端技术分享平台</a>
-                    </li>
-                    <li>
-                        <a href="#" target="_blank" class="link">Cpphp</a>
-                    </li>
-
+                    @foreach($friendshipLink as $v)
+                    <a class="b-link-a" href="{{ $v->url }}" target="_blank"><span class="fa fa-link b-black"></span> {{ $v->name }}</a>
+                    @endforeach
                 </ul>
-            </li>
-
-        </ul>
-        <!-- Lists in Slidebars -->
-        <ul class="sb-menu secondary">
-            <li>
-                <a href="#" class="animsition-link" title="归档">归档</a>
-            </li>
-
-            <li>
-                <a href="#" class="animsition-link" title="about">About</a>
             </li>
         </ul>
     </div>
@@ -492,8 +102,6 @@
         <a class="go-top fa fa-angle-up animated jello" href="javascript:;" onclick="goTop()"></a>
     </footer>
     <!-- 通用底部文件结束 -->
-
-
 <!-- 登录模态框开始 -->
 <div class="modal fade" id="b-modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -507,13 +115,13 @@
             <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
                 <ul class="row">
                     <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                        <a href="{{ url('auth/oauth/redirectToProvider/qq') }}"><img src="{{ asset('images/home/qq-login.png') }}" alt="QQ登录" title="QQ登录"></a>
+                        <a href="{{ url('auth/oauth/redirectToProvider/qq') }}"><img src="{{ asset('images/home/qq-login.png') }}" alt="QQ登录" title="QQ登录" style="height: auto;margin-top: -50px;"></a>
                     </li>
                     <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                        <a href="{{ url('auth/oauth/redirectToProvider/weibo') }}"><img src="{{ asset('images/home/sina-login.png') }}" alt="微博登录" title="微博登录"></a>
+                        <a href="{{ url('auth/oauth/redirectToProvider/weibo') }}"><img src="{{ asset('images/home/sina-login.png') }}" alt="微博登录" title="微博登录" style="height: auto;margin-top: -50px;"></a>
                     </li>
                     <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                        <a href="{{ url('auth/oauth/redirectToProvider/github') }}"><img src="{{ asset('images/home/github-login.jpg') }}" alt="github登录" title="github登录"></a>
+                        <a href="{{ url('auth/oauth/redirectToProvider/github') }}"><img src="{{ asset('images/home/github-login.jpg') }}" alt="github登录" title="github登录" style="height: auto;margin-top: -50px;"></a>
                     </li>
                 </ul>
             </div>

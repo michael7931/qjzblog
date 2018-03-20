@@ -118,32 +118,33 @@
             background: url(https://changyan.itc.cn/mdevp/extensions/cmt-list/061/images/title-tag.png) no-repeat;
             background-image: url("https://changyan.itc.cn/mdevp/extensions/cmt-list/061/images/title-tag.png");
         }
-        .module-cmt-list .block-cont-gw {
+        .block-cont-gw {
             padding: 13px 0 11px;
-            border-bottom: 1px dashed #e5e5e5;
+            /*border-bottom: 1px dashed #e5e5e5;*/
+            margin-bottom: 5px;
         }
-        .module-cmt-list .block-cont-gw .cont-head-gw {
+        .cont-head-gw {
             float: left;
             position: relative;
             width: 42px;
             z-index: 1;
         }
-         .module-cmt-list .block-cont-gw .cont-head-gw .head-img-gw {
+        .head-img-gw {
             padding: 7px 0 0;
             width: 42px;
             height: 42px;
             overflow: hidden;
         }
-        .module-cmt-list .block-cont-gw .cont-head-gw .head-img-gw img {
+        .head-img-gw img {
             width: 42px;
             height: 42px;
             border-radius: 42px;
         }
-        .module-cmt-list .block-cont-gw .msg-wrap-gw {
+        .msg-wrap-gw {
             position: relative;
             padding: 0 0 0 62px;
         }
-        .module-cmt-list .block-cont-gw .wrap-user-gw {
+        .wrap-user-gw {
             height: 24px;
             line-height: 16px;
             padding: 1px 0 0;
@@ -151,7 +152,7 @@
         .global-clear-spacing {
             letter-spacing: -6px;
         }
-        .module-cmt-list .wrap-user-gw .user-time-gw {
+        .user-time-gw {
             float: right;
             padding: 5px 0 0;
             font-family: Arial;
@@ -160,28 +161,28 @@
         .global-clear-spacing * {
             letter-spacing: normal;
         }
-        .module-cmt-list .wrap-user-gw .user-name-gw {
+        .user-name-gw {
             display: inline-block;
             padding: 5px 7px 0 0;
             cursor: default;
         }
-        .module-cmt-list .wrap-issue-gw {
+        .wrap-issue-gw {
             padding: 12px 0 0;
         }
-        .module-cmt-list .wrap-action-gw {
+        .wrap-action-gw {
             line-height: 16px;
             float: right;
             font-size: 14px
         }
-         .module-cmt-list .action-click-gw {
+        .action-click-gw {
             position: relative;
             top: -10px;
         }
-        .module-cmt-list .action-click-gw a:hover{
+        .action-click-gw a:hover{
             background: transparent;
             color: black !important;
         }
-        .module-cmt-list .wrap-action-gw .action-click-gw .gap-gw {
+        .gap-gw {
             width: 1px;
             height: 11px;
             display: inline-block;
@@ -227,6 +228,26 @@
             background-image: url(https://changyan.itc.cn/mdevp/extensions/cy-skin/028/skin-black/images/cai-active.png);
             background-repeat: no-repeat;
             background-position: center;
+        }
+        .comment-btn{
+            margin: 10px 0;
+        }
+        .comment-btn input{
+            width: 60px;
+            text-align: center;
+            background-color: #1999ce;
+            color: white;
+            border:1px solid #1999ce; 
+            border-radius: 5px;
+        }
+        .commit-child{
+            padding-left: 50px;
+        }
+        .commit-start{
+            border-bottom: 1px dashed #e5e5e5;
+        }
+        .reply-name{
+            color: #1999ce;
         }
         /*评论区样式结束*/
     </style>
@@ -295,7 +316,7 @@
                     <div class="site-menu with-background-image">
                         <ul>
                             <li>
-                                <a href="/" onclick="recordId('/',0)">首页</a>
+                                <a href="/" onclick="recordId('/',0)">Home</a>
                             </li>
                             @foreach($category as $v)
                            <li>
@@ -385,17 +406,20 @@
                         tuzkiNumber=1;
                     </script>
                     <div class="form-group">
-                        <textarea class="form-control" rows="5" placeholder="需要登陆后才能发表评论" cols="50" style="overflow: hidden;overflow-wrap: break-word;;resize: horizontal;height: 181px;" disabled="disabled"></textarea>
+                        <textarea class="form-control" rows="5" @if(!session()->has('user')) placeholder="需要登陆后才能发表评论" disabled="disabled"@endif cols="50" style="overflow: hidden;overflow-wrap: break-word;;resize: horizontal;height: 181px;" ></textarea>
+                        <li class="pull-right comment-btn">
+                            <input type="button" value="评 论" aid="{{ request()->id }}" pid="0" onclick="comment(this)">
+                        </li>
                         <!-- 评论列表 -->
                         <div class="module-cmt-list section-list-w">
                             <div class="cmt-list-type">
                                 <ul class="clear-g type-lists" style="margin-left: 0;">
-                                    <li class="type-list active">评论</li>
+                                    <li class="type-list active">发表</li>
                                 </ul>
                                 <div class="cmt-list-border"></div>
                                 <div class="cmt-list-number">
                                     <span class="comment-number">
-                                        <span class="cy-number">332</span>条评论
+                                        <span class="cy-number">{{ count($comment) }}</span>条评论
                                     </span>
                                 </div>
                             </div>
@@ -412,23 +436,23 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div id="cy-cmt-list">
+                            @foreach($comment as $k => $v)
+                            <div id="comment-{{ $v['id'] }}" class="commit-start">
                                 <div class="clear-g block-cont-gw">
                                     <div class="cont-head-gw">
                                         <div class="head-img-gw">
-                                            <img src="http://photo.pic.sohu.com/images/oldblog/person/11111.gif" alt="" height="42" width="42">
+                                            <img src="{{ asset('uploads/avatar/default.jpg') }}" _src="{{ asset($v['avatar']) }}" title="{{ $config['WEB_NAME'] }}" height="42" width="42">
                                         </div>
                                     </div>
                                     <div class="cont-msg-gw">
                                         <div class="msg-wrap-gw">
                                             <div class="wrap-user-gw global-clear-spacing">
-                                                <span class="user-time-gw">2018年2月9日 14:41</span>
-                                                <span class="user-name-gw">刘兵伟</span>
-                                                <!-- <span class="user-address-gw">[<i>浙江省</i>网友]</span> -->
+                                                <span class="user-time-gw">{{ $v['created_at'] }}</span>
+                                                <span class="user-name-gw">{{ $v['name'] }}</span>
                                             </div>
                                             <div class="wrap-issue-gw">
                                                 <p class="issue-wrap-gw">
-                                                    <span class="wrap-word-gw">为什么输查询语句的时候不会自动补全萨芬艰苦撒旦共花这他看见啊分噶kg恢复阶段电视剧看管好房价的状况良好捐款来自德国和费德勒讲故事酒店客房看看好了
+                                                    <span class="wrap-word-gw">{!! $v['content'] !!}</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -438,7 +462,7 @@
                                         <div class="action-click-gw global-clear-spacing">
                                             <i class="gap-gw"></i>
                                             <span class="click-reply-gw">
-                                                <a href="javascript:void(0)">回复</a>
+                                                <a href="javascript:;" aid="{{ request()->id }}" pid="{{ $v['id'] }}" username="{{ $v['name'] }}" onclick="reply(this)">回复</a>
                                             </span>
                                             <i class="gap-gw"></i>
                                             <span class="click-ding-gw">
@@ -453,91 +477,53 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- 回复内容 -->
+                                <foreach name="v['child']" item="n">
+                                @foreach($v['child'] as $m => $n)
+                                    <div id="comment-{{ $n['id'] }}" class="commit-child">
+                                        <div class="clear-g block-cont-gw">
+                                            <div class="cont-head-gw">
+                                                <div class="head-img-gw">
+                                                    <img src="{{ asset('uploads/avatar/default.jpg') }}" _src="{{ asset($n['avatar']) }}" alt="{{ $config['WEB_NAME'] }}" title="{{ $config['WEB_NAME'] }}" height="42" width="42">
+                                                </div>
+                                            </div>
+                                            <div class="cont-msg-gw">
+                                                <div class="msg-wrap-gw">
+                                                    <div class="wrap-user-gw global-clear-spacing">
+                                                        <span class="user-time-gw"> {{ $n['created_at'] }} </span>
+                                                        <span class="user-name-gw">{{ $n['name'] }}</span>
+                                                    </div>
+                                                    <div class="wrap-issue-gw">
+                                                        <p class="issue-wrap-gw">
+                                                            <span class="wrap-word-gw">回复<span class="reply-name">@ {{ $n['reply_name'] }}</span> : {!! $n['content'] !!}</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clear-g wrap-action-gw">
+                                                <div class="action-click-gw global-clear-spacing">
+                                                    <i class="gap-gw"></i>
+                                                    <span class="click-reply-gw">
+                                                        <a href="javascript:;" aid="{{ request()->id }}" pid="{{ $n['id'] }}" username="{{ $n['reply_name'] }}" onclick="reply(this)">回复</a>
+                                                    </span>
+                                                 <i class="gap-gw"></i>
+                                                    <span class="click-ding-gw">
+                                                        <a href="javascript:void(0)"><i class="icon-gw icon-ding-bg"></i></a>
+                                                        <em class="icon-name-bg"></em>
+                                                    </span>
+                                                    <i class="gap-gw"></i>
+                                                    <span class="click-cai-gw">    
+                                                        <a href="javascript:void(0)"><i class="icon-gw icon-cai-bg"></i></a>
+                                                        <em class="icon-name-bg"></em>
+                                                    </span>
+                                                </div>   
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                </foreach>
                             </div>
-                             <div id="cy-cmt-list">
-                                <div data-id="1537215473" data-user-id="1072125760" data-platform-id="3" class="clear-g block-cont-gw">
-                                    <div class="cont-head-gw">
-                                        <div class="head-img-gw">
-                                            <img src="http://photo.pic.sohu.com/images/oldblog/person/11111.gif" alt="" height="42" width="42">
-                                        </div>
-                                    </div>
-                                    <div class="cont-msg-gw">
-                                        <div class="msg-wrap-gw">
-                                            <div class="wrap-user-gw global-clear-spacing">
-                                                <span class="user-time-gw">2018年2月9日 14:41</span>
-                                                <span class="user-name-gw">刘兵伟</span>
-                                                <!-- <span class="user-address-gw">[<i>浙江省</i>网友]</span> -->
-                                            </div>
-                                            <div class="wrap-issue-gw">
-                                                <p class="issue-wrap-gw" style="margin-bottom: 0px;">
-                                                    <span class="wrap-word-gw">为什么输查询语句的时候不会自动补全代码</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- 图片展示 -->
-                                    <div class="clear-g wrap-action-gw">
-                                        <div class="action-click-gw global-clear-spacing">
-                                            <i class="gap-gw"></i>
-                                            <span class="click-reply-gw">
-                                                <a href="javascript:void(0)">回复</a>
-                                            </span>
-                                            <i class="gap-gw"></i>
-                                            <span class="click-ding-gw">
-                                                <a href="javascript:void(0)"><i class="icon-gw icon-ding-bg"></i></a>
-                                                <em class="icon-name-bg"></em>
-                                            </span>
-                                            <i class="gap-gw"></i>
-                                            <span class="click-cai-gw">    
-                                                <a href="javascript:void(0)"><i class="icon-gw icon-cai-bg"></i></a>
-                                                <em class="icon-name-bg"></em>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                             <div id="cy-cmt-list">
-                                <div  class="clear-g block-cont-gw">
-                                    <div class="cont-head-gw">
-                                        <div class="head-img-gw">
-                                            <img src="http://photo.pic.sohu.com/images/oldblog/person/11111.gif" alt="" height="42" width="42">
-                                        </div>
-                                    </div>
-                                    <div class="cont-msg-gw">
-                                        <div class="msg-wrap-gw">
-                                            <div class="wrap-user-gw global-clear-spacing">
-                                                <span class="user-time-gw">2018年2月9日 14:41</span>
-                                                <span class="user-name-gw">刘兵伟</span>
-                                                <!-- <span class="user-address-gw">[<i>浙江省</i>网友]</span> -->
-                                            </div>
-                                            <div class="wrap-issue-gw">
-                                                <p class="issue-wrap-gw" style="margin-bottom: 0px;">
-                                                    <span class="wrap-word-gw">为什么输查询语句的时候不会自动补全代码</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- 图片展示 -->
-                                    <div class="clear-g wrap-action-gw">
-                                        <div class="action-click-gw global-clear-spacing">
-                                            <i class="gap-gw"></i>
-                                            <span class="click-reply-gw">
-                                                <a href="javascript:void(0)">回复</a>
-                                            </span>
-                                            <i class="gap-gw"></i>
-                                            <span class="click-ding-gw">
-                                                <a href="javascript:void(0)"><i class="icon-gw icon-ding-bg"></i></a>
-                                                <em class="icon-name-bg"></em>
-                                            </span>
-                                            <i class="gap-gw"></i>
-                                            <span class="click-cai-gw">    
-                                                <a href="javascript:void(0)"><i class="icon-gw icon-cai-bg"></i></a>
-                                                <em class="icon-name-bg"></em>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <!-- 引入通用评论结束 -->
@@ -545,8 +531,7 @@
             </div>
         </div>
     </article>
-    <script src="statics/highlight.js"></script>
-    <script src="statics/scripts.js"></script>
+    <script src="{{ asset('js/home/scripts.js') }}"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
             var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
