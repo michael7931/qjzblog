@@ -50,7 +50,7 @@
             line-height: 30px;
             height: 30px;
             position: relative;
-            margin-top: 50px;
+            margin-top: 60px;
             overflow: hidden;
         }
         .module-cmt-list .cmt-list-type .type-lists li.active {
