@@ -137,7 +137,7 @@
                         <ul style="display: inline-block;line-height: 60px;margin-left: 20px;">
                             @if(empty(session('user.name')))
                             <li>
-                                <span><a href="javascript:void(0);" onclick="login()">登录</a></span>
+                                <span class="b-log"><a href="javascript:void(0);" onclick="login()">登录</a></span>
                             </li>
                             @else
                             <li>
