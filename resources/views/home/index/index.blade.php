@@ -130,14 +130,14 @@
                         <div style="display: inline-block;line-height: 60px;">
                             <form class="form-inline"  role="form" action="{{ url('search') }}" method="get">
                                 <input class="b-search-text" type="text" name="wd">
-                                <input class="b-search-submit" type="submit" value=" 搜索 ">
+                                <input class="b-search-submit" type="submit" value="&nbsp;搜索&nbsp;">
                             </form>
                         </div>
                         <!-- 登陸 -->
                         <ul style="display: inline-block;line-height: 60px;margin-left: 20px;">
                             @if(empty(session('user.name')))
                             <li>
-                                <a href="javascript:;" onclick="login()">登录</a>
+                                <span><a href="javascript:void(0);" onclick="login()">登录</a></span>
                             </li>
                             @else
                             <li>
