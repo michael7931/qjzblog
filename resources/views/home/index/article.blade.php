@@ -254,57 +254,6 @@
 @endsection
 
 @section('content')
-
-<body>
-    <div id="navigation" class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <div class="logo">
-                    <a href="#" title="iphpt" class="animsition-link">
-                        <img src="{{ asset('images/nice.png') }}" alt="logo" width="35px;">
-                    </a>
-                </div>
-                <nav>
-                    <ul class="nav">
-                        <li>
-                            <a href="#" class="animsition-link">叶落山城秋</a>
-                        </li>
-
-                        <li>
-                            <a href="#" title="Github" target="_blank">
-                                <i class="icon-github"></i>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#" title="Sina-Weibo" target="_blank">
-                                <i class="icon-sina-weibo"></i>
-                            </a>
-                        </li>
-
-                        <li class="nolink">
-                            <span>
-                                <a href="#">给我留言</a>
-                            </span>
-                        </li>
-                        <li class="nolink">
-                            <span>Welcome!</span>
-                        </li>
-                    </ul>
-                </nav>
-                <!--// Info-bar -->
-            </div>
-            <!-- // .container -->
-            <div class="learnmore sb-toggle-right">More</div>
-            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar before"></span>
-                <span class="icon-bar main"></span>
-                <span class="icon-bar after"></span>
-            </button>
-        </div>
-        <!-- // .navbar-inner -->
-    </div>
     <header class="site-header header-background" style="background-image: url('{{ asset('images/default-banner-dark.jpg') }}')">
         <div class="container">
             <div class="row">
@@ -312,18 +261,6 @@
                     <div class="page-title with-background-image">
                         <p class="title">{{ $data->title }}</p>
                         <p class="subtitle"></p>
-                    </div>
-                    <div class="site-menu with-background-image">
-                        <ul>
-                            <li>
-                                <a href="/" onclick="recordId('/',0)">Home</a>
-                            </li>
-                            @foreach($category as $v)
-                           <li>
-                               <a class="@if($v->id == $category_id) live @endif" href="{{ url('category/'.$v->id) }}" onclick="return recordId('cid', '{{ $v->id }}')">{{ $v->name }}</a>
-                           </li>
-                           @endforeach
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -337,7 +274,6 @@
                         <span class="author info">By {{ $data->author }}</span>
                         <span class="date-time info">On
                             <span class="date">{{ $data->created_at }}</span>
-                            <!-- <span class="time">10:42:32</span> -->
                         </span>
                         <span class="categories info">Under
                             <a href="{{ url('category', [$data->category_id]) }}">{{ $data->category_name }}</a>
@@ -353,9 +289,6 @@
                             <a class="tstyle-{{ $tag_i }}" href="{{ url('tag', [$v->id]) }}">{{ $v->name }}</a>
                         </li>
                         @endforeach
-                     <!--    @foreach($data->tag as $v)
-                            <a class="tag" href="{{ url('tag', [$v->tag_id]) }}">#{{ $v->name }}</a>
-                        @endforeach -->
                     </div>
                     <div class="yuch">
                         <div class="smtou">
@@ -531,7 +464,6 @@
             </div>
         </div>
     </article>
-    <script src="{{ asset('js/home/scripts.js') }}"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
             var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))

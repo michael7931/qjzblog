@@ -30,8 +30,171 @@
     .b-login-img a:hover{
         background-color: transparent !important;
     }
+    /**/
+    .fancybox-margin {
+            margin-right: 0px;
+        }
+        .pagination {
+            width: 100%;
+        }
+        footer{
+            background-color: white;
+            padding: 0;
+        }
+        footer a{
+            color: #1999ec;
+            transition: all 0.25s;
+        }
+        /* footer a:hover, footer a:active, footer a:focus, footer a:visited, footer a:link{
+            color: white !important;
+            transition: all 0.25s;
+        } */
+        #intro a{
+            color: #1999ec;
+        }
+        #intro a:hover{
+            text-decoration: none;
+            color: #fff;background-color: #1999ec;
+            transition: all 0.25s;
+            cursor: pointer;
+        }
+        .post-item-wrapper .date-and-category .categories a{
+            color: #fff !important;
+        }
+        .nolink span a{
+            color: #151515;
+        }
+        h2 .more{
+            color: #151515;
+        }
+        h2 a:hover{
+            background-color: transparent !important;
+        }
+        .navbar .nav > li > a {
+            font-size: 16px;
+            font-weight: 600;
+            border:0;
+        }
+        .navbar .nav >li > a:hover{
+            color: #1999ec !important;
+        }
+        .navbar .nav .active >a{
+            color: #1999ec !important;
+        }
+        .b-head_img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 60px;
+        }
+        .navbar-inner{
+            /*background-color: #111 !important;*/
+            box-shadow: 0 0 10px 1px;
+        }
+        .b-search-text{
+            background-color: transparent;
+            border:1px solid grey;
+        }
+        .b-search-submit{
+            background-color: transparent;
+            border:1px solid grey;
+            color: black;
+            font-weight: 600;
+            background-color: #1999ec;
+        }
+        .b-nickname{
+            font-weight: 600;
+            font-size: 18px;
+            color: #111;
+        }
+        .b-log a{
+            font-weight: 600;
+            padding: 5px 10px;
+            color: #1999ec;
+        }
+        .b-log a:hover{
+            color: white;
+            border-radius: 5px;
+        }
 </style>
 <body>
+    <body id="index" class="lightnav animsition pace-done" style="animation-duration: 0.9s; opacity: 1;">
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" style="transform: translate3d(100%, 0px, 0px);" data-progress-text="100%" data-progress="99">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+
+    <div id="sb-site" style="min-height: 584.667px;">
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <div class="logo">
+                        <a href="#" title="iphpt" class="animsition-link">
+                            <img src="{{ asset('images/nice.png') }}" alt="logo" width="35px;">
+                        </a>
+                    </div>
+                    <nav style="width: 100%;">
+                        <ul class="nav" style="float: left;width: auto;">
+                            <li @if($v->id == $category_id) active @endif>
+                                <a href="/" onclick="recordId('/',0)">Home</a>
+                            </li>
+
+
+
+                              <!--  <div class="site-menu with-background-image">
+                        <ul>
+                            <li>
+                                <a href="/" onclick="recordId('/',0)">Home</a>
+                            </li>
+                            @foreach($category as $v)
+                           <li>
+                               <a class="@if($v->id == $category_id) live @endif" href="{{ url('category/'.$v->id) }}" onclick="return recordId('cid', '{{ $v->id }}')">{{ $v->name }}</a>
+                           </li>
+                           @endforeach
+                        </ul>
+                    </div> -->
+                             @foreach($category as $v)
+                           <li @if($v->id == $category_id) active @endif>
+                               <a href="{{ url('category/'.$v->id) }}" onclick="return recordId('cid', '{{ $v->id }}')">{{ $v->name }}</a>
+                           </li>
+                           @endforeach
+                        </ul>
+                        <!-- 搜索功能以及登陸 -->
+                    <div style="float: right;">
+                        <div style="display: inline-block;line-height: 60px;">
+                            <form class="form-inline"  role="form" action="{{ url('search') }}" method="get">
+                                <input class="b-search-text" type="text" name="wd">
+                                <input class="b-search-submit" type="submit" value="&nbsp;搜索&nbsp;">
+                            </form>
+                        </div>
+                        <!-- 登陸 -->
+                        <ul style="display: inline-block;line-height: 60px;margin-left: 20px;">
+                            @if(empty(session('user.name')))
+                            <li>
+                                <span class="b-log"><a href="javascript:void(0);" onclick="login()">登录</a></span>
+                            </li>
+                            @else
+                            <li>
+                                <span><img class="b-head_img" src="{{ session('user.avatar') }}" alt="{{ session('user.name') }}" title="{{ session('user.name') }}"  /></span>
+                                <span class="b-nickname">{{ session('user.name') }}</span>
+                                <span class="b-log"><a href="{{ url('auth/oauth/logout') }}">退出</a></span>
+                            </li>
+                            @endif
+                        </ul>
+                    </div>
+                    </nav>
+                </div>
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar before"></span>
+                    <span class="icon-bar main"></span>
+                    <span class="icon-bar after"></span>
+                </button>
+            </div>
+        </div>
     @yield('content')
     <!-- 左侧sidebar部分开始 -->
     <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling" style="margin-right: -252.533px;">
@@ -145,6 +308,8 @@
 <![endif]-->
 <script src="{{ asset('statics/pace/pace.min.js') }}"></script>
 <script src="{{ asset('js/home/index.js') }}"></script>
+ <script src="{{ asset('js/home/script2.js') }}"></script>
+<!-- <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.js" color="255,0,0" opacity="0.6" count="99"></script> -->
 <!-- 百度页面自动提交开始 -->
 {{--<script>--}}
     {{--(function(){--}}
