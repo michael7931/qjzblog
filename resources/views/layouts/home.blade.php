@@ -117,43 +117,9 @@
             color: white;
             border-radius: 5px;
         }
-        /*BackToTop*/
-     /*   #backtoTop .button--show{
-            right: 10px;
-        }
-        #backtoTop{
-            background-color: #eee;
-            border-radius: 100%;
-            bottom: 1px;
-            height: 48px;
-            position: fixed;
-            width: 48px;
-            transition: 0.5s;
-            -webkit-transition:0.5s;
-        }
-        canvas{
-            display: inline-block;
-        }
-        .per{
-            font-size: 16px;
-            height: 48px;
-            line-height: 48px;
-            position: absolute;
-            text-align: center;
-            top: 0;
-            width: 48px;
-            color: #555;
-            cursor: pointer;
-        }*/
 </style>
 <body>
     <body id="index" class="lightnav animsition pace-done" style="animation-duration: 0.9s; opacity: 1;">
-    <div class="pace  pace-inactive">
-        <div class="pace-progress" style="transform: translate3d(100%, 0px, 0px);" data-progress-text="100%" data-progress="99">
-            <div class="pace-progress-inner"></div>
-        </div>
-        <div class="pace-activity"></div>
-    </div>
 
     <div id="sb-site" style="min-height: 584.667px;">
         <div id="navigation" class="navbar navbar-fixed-top">
@@ -166,11 +132,11 @@
                     </div>
                     <nav style="width: 100%;">
                         <ul class="nav" style="float: left;width: auto;">
-                            <li @if($v->id == $category_id) active @endif>
+                            <li>
                                 <a href="/" onclick="recordId('/',0)">Home</a>
                             </li>
-                             @foreach($category as $v)
-                           <li @if($v->id == $category_id) active @endif>
+                            @foreach($category as $v)
+                           <li>
                                <a href="{{ url('category/'.$v->id) }}" onclick="return recordId('cid', '{{ $v->id }}')">{{ $v->name }}</a>
                            </li>
                            @endforeach
