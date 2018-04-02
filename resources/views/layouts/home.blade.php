@@ -24,6 +24,7 @@
     <script src="{{ asset('js/home/jquery_003.js') }}"></script>
     <!-- <script src="{{ asset('js/home/scripts.js') }}"></script> -->
     <script src="{{ asset('js/home/jquery_002.js') }}"></script>
+    <!-- <script type="text/javascript" src="{{ asset('js/home/backtop.js') }}"></script> -->
     @yield('css')
 </head>
 <style type="text/css">
@@ -88,7 +89,7 @@
             line-height: 60px;
         }
         .navbar-inner{
-            /*background-color: #111 !important;*/
+            background-color: #111 !important;
             box-shadow: 0 0 10px 1px;
         }
         .b-search-text{
@@ -116,6 +117,34 @@
             color: white;
             border-radius: 5px;
         }
+        /*BackToTop*/
+     /*   #backtoTop .button--show{
+            right: 10px;
+        }
+        #backtoTop{
+            background-color: #eee;
+            border-radius: 100%;
+            bottom: 1px;
+            height: 48px;
+            position: fixed;
+            width: 48px;
+            transition: 0.5s;
+            -webkit-transition:0.5s;
+        }
+        canvas{
+            display: inline-block;
+        }
+        .per{
+            font-size: 16px;
+            height: 48px;
+            line-height: 48px;
+            position: absolute;
+            text-align: center;
+            top: 0;
+            width: 48px;
+            color: #555;
+            cursor: pointer;
+        }*/
 </style>
 <body>
     <body id="index" class="lightnav animsition pace-done" style="animation-duration: 0.9s; opacity: 1;">
@@ -140,21 +169,6 @@
                             <li @if($v->id == $category_id) active @endif>
                                 <a href="/" onclick="recordId('/',0)">Home</a>
                             </li>
-
-
-
-                              <!--  <div class="site-menu with-background-image">
-                        <ul>
-                            <li>
-                                <a href="/" onclick="recordId('/',0)">Home</a>
-                            </li>
-                            @foreach($category as $v)
-                           <li>
-                               <a class="@if($v->id == $category_id) live @endif" href="{{ url('category/'.$v->id) }}" onclick="return recordId('cid', '{{ $v->id }}')">{{ $v->name }}</a>
-                           </li>
-                           @endforeach
-                        </ul>
-                    </div> -->
                              @foreach($category as $v)
                            <li @if($v->id == $category_id) active @endif>
                                <a href="{{ url('category/'.$v->id) }}" onclick="return recordId('cid', '{{ $v->id }}')">{{ $v->name }}</a>
@@ -186,6 +200,8 @@
                     </div>
                     </nav>
                 </div>
+                <!-- 进群讨论 -->
+                <!-- <img src="{{ asset('images/home/chart.png') }}"> -->
                 <div class="learnmore sb-toggle-right">More</div>
                 <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
                     <span class="sr-only">Toggle navigation</span>
@@ -308,8 +324,7 @@
 <![endif]-->
 <script src="{{ asset('statics/pace/pace.min.js') }}"></script>
 <script src="{{ asset('js/home/index.js') }}"></script>
- <script src="{{ asset('js/home/script2.js') }}"></script>
-<!-- <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.js" color="255,0,0" opacity="0.6" count="99"></script> -->
+<script src="{{ asset('js/home/script2.js') }}"></script>
 <!-- 百度页面自动提交开始 -->
 {{--<script>--}}
     {{--(function(){--}}

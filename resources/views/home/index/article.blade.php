@@ -7,7 +7,7 @@
 @section('description', $data->description)
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('statics/prism/prism.min.css') }}" />
+    <!-- <link rel="stylesheet" href="{{ asset('statics/prism/prism.min.css') }}" /> -->
     <style>
         .js-content p{
             margin-bottom: 20px;
@@ -254,7 +254,7 @@
 @endsection
 
 @section('content')
-    <header class="site-header header-background" style="background-image: url('{{ asset('images/default-banner-dark.jpg') }}')">
+    <header class="site-header header-background" style="background-image: url({{ asset('images/default-banner-dark.jpg') }})">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
