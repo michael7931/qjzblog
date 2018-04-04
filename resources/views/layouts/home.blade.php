@@ -90,7 +90,6 @@
         }
         .navbar-inner{
             background-color: #111 !important;
-            box-shadow: 0 0 10px 1px;
         }
         .b-search-text{
             background-color: transparent;
@@ -117,38 +116,75 @@
             color: white;
             border-radius: 5px;
         }
+        .talkWithMe{
+            position: absolute;
+            width: 200px;
+            display: none;
+            background: #fff;
+            right: -85px;
+            z-index: 99;
+            padding: 0 10px;
+            padding-bottom: 0px;
+            border: 1px solid #ccc;
+            padding-bottom: 15px;
+        }
+        #talkWithMe{
+            width: 32px;
+            height: auto;
+        }
+        .talkWithMe p{
+            font-size: 20px;
+            text-align: center;
+        }
+        .talkWithMe img{
+            display: block;
+            margin:0 auto;
+        }
+        .talkWithMe #code{
+            width: 160px;
+            height: auto;
+        }
+        .talkWithMe #up{
+            width: 20px;
+            height: auto;
+            position: relative;
+            top: -16px;
+        }
+       /* .navbar .nav > li{
+            width: 108px;
+            margin-top: 20px;
+        }*/
+        .navbar .nav > li:hover{
+            background-color: #1999ec;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .navbar .nav > li:hover a{
+            color: white !important;
+        }
+        .subnav{
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: #1999ec;
+            color: white !important;
+            font-size: 12px;
+            padding: 5px 2px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .subnav a{
+            display: block;
+        }
 </style>
 <body>
     <body id="index" class="lightnav animsition pace-done" style="animation-duration: 0.9s; opacity: 1;">
-
     <div id="sb-site" style="min-height: 584.667px;">
         <div id="navigation" class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
                     <div class="logo">
-                        <a href="#" title="iphpt" class="animsition-link">
-                            <img src="{{ asset('images/nice.png') }}" alt="logo" width="35px;">
-                        </a>
-                    </div>
-                    <nav style="width: 100%;">
-                        <ul class="nav" style="float: left;width: auto;">
-                            <li>
-                                <a href="/" onclick="recordId('/',0)">Home</a>
-                            </li>
-                            @foreach($category as $v)
-                           <li>
-                               <a href="{{ url('category/'.$v->id) }}" onclick="return recordId('cid', '{{ $v->id }}')">{{ $v->name }}</a>
-                           </li>
-                           @endforeach
-                        </ul>
-                        <!-- 搜索功能以及登陸 -->
-                    <div style="float: right;">
-                        <div style="display: inline-block;line-height: 60px;">
-                            <form class="form-inline"  role="form" action="{{ url('search') }}" method="get">
-                                <input class="b-search-text" type="text" name="wd">
-                                <input class="b-search-submit" type="submit" value="&nbsp;搜索&nbsp;">
-                            </form>
-                        </div>
                         <!-- 登陸 -->
                         <ul style="display: inline-block;line-height: 60px;margin-left: 20px;">
                             @if(empty(session('user.name')))
@@ -164,12 +200,45 @@
                             @endif
                         </ul>
                     </div>
+                    <nav style="width: 100%;">
+                        <ul class="nav" style="float: left;width: auto;">
+                            <li style="position: relative;">
+                                <a href="/" onclick="recordId('/',0)">Home</a>
+                               <!--  <div class="subnav">
+                                    <a href="">测试下拉</a>
+                                    <a href="">测试下拉</a>
+                                    <a href="">测试下拉</a>
+                                    <a href="">测试下拉</a>
+                                </div> -->
+                            </li>
+                            @foreach($category as $v)
+                           <li>
+                               <a href="{{ url('category/'.$v->id) }}" onclick="return recordId('cid', '{{ $v->id }}')">{{ $v->name }}</a>
+                           </li>
+                           @endforeach
+                        </ul>
+                        <!-- 搜索功能以及登陸 -->
+                        <div style="float: right;position: relative;right: 30px; ">
+                            <div style="display: inline-block;line-height: 60px;margin-right: 10px;">
+                                <form class="form-inline"  role="form" action="{{ url('search') }}" method="get">
+                                    <input class="b-search-text" type="text" name="wd">
+                                    <input class="b-search-submit" type="submit" value="&nbsp;搜索&nbsp;">
+                                </form>
+                            </div>
+                             <!-- 进群讨论 -->
+                            <div style="display: inline-block;line-height: 60px;">
+                                <img src="{{ asset('images/concat.png') }}" id="talkWithMe">
+                                <div class="talkWithMe">
+                                    <img src=" {{asset('images/up.png')}} " id="up">
+                                    <p>扫一扫,进群交流</p>
+                                    <img src="{{ asset('images/QQ.jpg') }}" id="code">
+                                </div>
+                            </div>
+                        </div>
                     </nav>
                 </div>
-                <!-- 进群讨论 -->
-                <!-- <img src="{{ asset('images/home/chart.png') }}"> -->
-                <div class="learnmore sb-toggle-right">More</div>
-                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <!-- <div class="learnmore sb-toggle-left">More</div> -->
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-left" title="More">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar before"></span>
                     <span class="icon-bar main"></span>
@@ -179,7 +248,7 @@
         </div>
     @yield('content')
     <!-- 左侧sidebar部分开始 -->
-    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling" style="margin-right: -252.533px;">
+    <div class="sb-slidebar sb-left sb-style-overlay sb-momentum-scrolling">
         <img src="http://qiniu.biteabc.com/me_top_bg.jpg" style="width: 100%;height: auto;">
         <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
             <img src="{{ asset('images/close.png') }}" alt="Close">
@@ -247,70 +316,69 @@
         <a class="go-top fa fa-angle-up animated jello" href="javascript:;" onclick="goTop()"></a>
     </footer>
     <!-- 通用底部文件结束 -->
-<!-- 登录模态框开始 -->
-<div class="modal fade" id="b-modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content row">
-            <div class="col-xs-12 col-md-12 col-lg-12">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title b-ta-center" id="myModalLabel">无需注册，用以下帐号即可直接登录</h4>
+    <!-- 登录模态框开始 -->
+    <div class="modal fade" id="b-modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title b-ta-center" id="myModalLabel">无需注册，用以下帐号即可直接登录</h4>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
-                <ul class="row">
-                    <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                        <a href="{{ url('auth/oauth/redirectToProvider/qq') }}"><img src="{{ asset('images/home/qq-login.png') }}" alt="QQ登录" title="QQ登录" style="height: auto;margin-top: -50px;"></a>
-                    </li>
-                    <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                        <a href="{{ url('auth/oauth/redirectToProvider/weibo') }}"><img src="{{ asset('images/home/sina-login.png') }}" alt="微博登录" title="微博登录" style="height: auto;margin-top: -50px;"></a>
-                    </li>
-                    <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                        <a href="{{ url('auth/oauth/redirectToProvider/github') }}"><img src="{{ asset('images/home/github-login.jpg') }}" alt="github登录" title="github登录" style="height: auto;margin-top: -50px;"></a>
-                    </li>
-                </ul>
+                <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
+                    <ul class="row">
+                        <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                            <a href="{{ url('auth/oauth/redirectToProvider/qq') }}"><img src="{{ asset('images/home/qq-login.png') }}" alt="QQ登录" title="QQ登录" style="height: auto;margin-top: -50px;"></a>
+                        </li>
+                        <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                            <a href="{{ url('auth/oauth/redirectToProvider/weibo') }}"><img src="{{ asset('images/home/sina-login.png') }}" alt="微博登录" title="微博登录" style="height: auto;margin-top: -50px;"></a>
+                        </li>
+                        <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                            <a href="{{ url('auth/oauth/redirectToProvider/github') }}"><img src="{{ asset('images/home/github-login.jpg') }}" alt="github登录" title="github登录" style="height: auto;margin-top: -50px;"></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- 登录模态框结束 -->
+    <!-- 登录模态框结束 -->
+    <script>
+        logoutUrl="{:U('Home/User/logout')}";
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
+    <script src="{{ asset('statics/bootstrap-3.3.5/js/bootstrap.min.js') }}"></script>
+    <!--[if lt IE 9]>
+    <script src="{{ asset('statics/js/html5shiv.min.js') }}"></script>
+    <script src="{{ asset('statics/js/respond.min.js') }}"></script>
+    <![endif]-->
+    <script src="{{ asset('statics/pace/pace.min.js') }}"></script>
+    <script src="{{ asset('js/home/index.js') }}"></script>
+    <script src="{{ asset('js/home/script2.js') }}"></script>
+    <!-- 百度页面自动提交开始 -->
+    {{--<script>--}}
+        {{--(function(){--}}
+            {{--var bp = document.createElement('script');--}}
+            {{--var curProtocol = window.location.protocol.split(':')[0];--}}
+            {{--if (curProtocol === 'https') {--}}
+                {{--bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';--}}
+            {{--}--}}
+            {{--else {--}}
+                {{--bp.src = 'http://push.zhanzhang.baidu.com/push.js';--}}
+            {{--}--}}
+            {{--var s = document.getElementsByTagName("script")[0];--}}
+            {{--s.parentNode.insertBefore(bp, s);--}}
+        {{--})();--}}
+    {{--</script>--}}
+    <!-- 百度页面自动提交结束 -->
 
-<script>
-    logoutUrl="{:U('Home/User/logout')}";
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-</script>
-<script src="{{ asset('statics/bootstrap-3.3.5/js/bootstrap.min.js') }}"></script>
-<!--[if lt IE 9]>
-<script src="{{ asset('statics/js/html5shiv.min.js') }}"></script>
-<script src="{{ asset('statics/js/respond.min.js') }}"></script>
-<![endif]-->
-<script src="{{ asset('statics/pace/pace.min.js') }}"></script>
-<script src="{{ asset('js/home/index.js') }}"></script>
-<script src="{{ asset('js/home/script2.js') }}"></script>
-<!-- 百度页面自动提交开始 -->
-{{--<script>--}}
-    {{--(function(){--}}
-        {{--var bp = document.createElement('script');--}}
-        {{--var curProtocol = window.location.protocol.split(':')[0];--}}
-        {{--if (curProtocol === 'https') {--}}
-            {{--bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';--}}
-        {{--}--}}
-        {{--else {--}}
-            {{--bp.src = 'http://push.zhanzhang.baidu.com/push.js';--}}
-        {{--}--}}
-        {{--var s = document.getElementsByTagName("script")[0];--}}
-        {{--s.parentNode.insertBefore(bp, s);--}}
-    {{--})();--}}
-{{--</script>--}}
-<!-- 百度页面自动提交结束 -->
-
-<!-- 百度统计开始 -->
-{!! htmlspecialchars_decode($config['WEB_STATISTICS']) !!}
-<!-- 百度统计结束 -->
-@yield('js')
-</body>
+    <!-- 百度统计开始 -->
+    {!! htmlspecialchars_decode($config['WEB_STATISTICS']) !!}
+    <!-- 百度统计结束 -->
+    @yield('js')
+    </body>
 </html>

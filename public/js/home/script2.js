@@ -182,3 +182,9 @@ $(document).ready(function($) {
 		}
 	});
 });
+
+$('#talkWithMe').mouseover(function(){
+	$('.talkWithMe').css('display','block')
+}).mouseleave(function(){
+	$('.talkWithMe').css('display','none')
+})

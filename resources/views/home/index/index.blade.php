@@ -140,10 +140,10 @@
             s.parentNode.insertBefore(bp, s);
         })();
     </script>
-    <div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 9px; z-index: 100; background: rgba(255, 255, 255, 0.7) none repeat scroll 0% 0%; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 1; display: block;">
+   <!--  <div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 9px; z-index: 100; background: rgba(255, 255, 255, 0.7) none repeat scroll 0% 0%; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 1; display: block;">
         <div style="position: relative; top: 0px; float: right; width: 9px; height: 60px; background-color: rgb(21, 21, 21); border: 0px solid rgb(32, 32, 32); background-clip: padding-box; border-radius: 5px;"
             class="nicescroll-cursors"></div>
-    </div>
+    </div> -->
 </body>
 
 </html>

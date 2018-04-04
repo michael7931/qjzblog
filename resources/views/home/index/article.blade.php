@@ -18,6 +18,8 @@
         /*文章头部声明样式开始*/
         .yuch{
             margin-top: 20px;
+            padding: 10px;
+            box-shadow: inset 0px 0px 10px 5px #cdcdcd;
         }
         .smtou{
             font-size: 14px;
@@ -249,12 +251,22 @@
         .reply-name{
             color: #1999ce;
         }
+        .present img{
+            display: inline-block;
+            width: 30%;
+            height: auto;
+            margin-bottom: 30px;
+        }
+        .present p{
+            text-align: center;
+            color: red;
+        }
         /*评论区样式结束*/
     </style>
 @endsection
 
 @section('content')
-    <header class="site-header header-background" style="background-image: url({{ asset('images/default-banner-dark.jpg') }})">
+    <header class="site-header header-background" style="background-image: url('{{ asset('images/default-banner-dark.jpg') }}')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -315,6 +327,11 @@
                             {!! htmlspecialchars_decode($config['COPYRIGHT_WORD']) !!}
                         </p>
                     </eq>
+                    <div class="present">
+                        <p>留下点心意吧：）</p>
+                        <img src="{{ asset('images/wxpay.png') }}" style="float:left;margin-left: 13%;">
+                        <img src="{{ asset('images/zfbpay.png') }}" style="float:right;margin-right: 13%;">
+                    </div>
                     <ul class="article-prev-next">
                         <li class="article-prev">
                             上一篇：
@@ -472,7 +489,7 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('statics/prism/prism.min.js') }}"></script>
+    <script src="{{asset('statics/prism/prism.min.js')}}"></script>
     <script>
         // 添加行数
         $('pre').addClass('line-numbers');
