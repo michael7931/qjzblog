@@ -166,7 +166,7 @@
             position: absolute;
             top: 60px;
             left: 0;
-            right: 0;
+            white-space:nowrap; 
             background-color: #1999ec;
             color: white !important;
             font-size: 12px;
@@ -176,7 +176,12 @@
         }
         .subnav a{
             display: block;
+            padding: 2px 0;
+            /*border-bottom: 1px solid white;*/
         }
+      /*  .subnav a:hover{
+            color: pink !important;
+        }*/
 </style>
 <body>
     <body id="index" class="lightnav animsition pace-done" style="animation-duration: 0.9s; opacity: 1;">
@@ -204,17 +209,23 @@
                         <ul class="nav" style="float: left;width: auto;">
                             <li style="position: relative;">
                                 <a href="/" onclick="recordId('/',0)">Home</a>
-                               <!--  <div class="subnav">
+                                <div class="subnav">
+                                    <a href="">测试下拉ahhahhahhahahhah</a>
                                     <a href="">测试下拉</a>
                                     <a href="">测试下拉</a>
                                     <a href="">测试下拉</a>
-                                    <a href="">测试下拉</a>
-                                </div> -->
+                                </div>
                             </li>
                             @foreach($category as $v)
-                           <li>
+                            <li style="position: relative;">
                                <a href="{{ url('category/'.$v->id) }}" onclick="return recordId('cid', '{{ $v->id }}')">{{ $v->name }}</a>
-                           </li>
+                               <div class="subnav">
+                                    <a href="">测试下拉ahhahhahhahahhah</a>
+                                    <a href="">测试下拉</a>
+                                    <a href="">测试下拉</a>
+                                    <a href="">测试下拉</a>
+                                </div>
+                            </li>
                            @endforeach
                         </ul>
                         <!-- 搜索功能以及登陸 -->
@@ -256,7 +267,7 @@
         <!-- Lists in Slidebars -->
         <ul class="sb-menu">
             <li>
-                <a href="#" class="animsition-link" title="Home">Home</a>
+                <a href="/" class="animsition-link" title="Home">Home</a>
             </li>
             <!-- Dropdown Menu -->
             <li>
@@ -350,6 +361,17 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        $(function(){
+            $('.subnav').hide()
+        })
+        $('.nav').children('li').mouseover(function(ev){
+            $(ev.target).parent('li').children('.subnav').show()
+            $(ev.target).parent('li').siblings().children('.subnav').hide()
+            $(ev.target).children('.subnav').show()
+            $(ev.target).siblings().children('.subnav').hide()
+        }).mouseleave(function(){
+            $('.subnav').hide()
+        })
     </script>
     <script src="{{ asset('statics/bootstrap-3.3.5/js/bootstrap.min.js') }}"></script>
     <!--[if lt IE 9]>
