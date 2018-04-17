@@ -75,6 +75,9 @@
             font-size: 16px;
             font-weight: 600;
             border:0;
+            height:60px;
+            line-height:60px;
+            margin:0 !important;
         }
         .navbar .nav >li > a:hover{
             color: #1999ec !important;
