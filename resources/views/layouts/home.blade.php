@@ -376,7 +376,7 @@
     <script src="{{ asset('statics/js/html5shiv.min.js') }}"></script>
     <script src="{{ asset('statics/js/respond.min.js') }}"></script>
     <![endif]-->
-    <script src="{{ asset('statics/pace/pace.min.js') }}"></script>
+    <!-- <script src="{{ asset('statics/pace/pace.min.js') }}"></script> -->
     <script src="{{ asset('js/home/index.js') }}"></script>
     <script src="{{ asset('js/home/script2.js') }}"></script>
     <!-- 百度页面自动提交开始 -->

@@ -481,6 +481,7 @@
             </div>
         </div>
     </article>
+    </div>
     <script type="text/javascript">
     /* 鼠标特效 */
     var a_idx = 0;
