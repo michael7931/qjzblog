@@ -80,7 +80,7 @@
             bottom: 1px;
             left: 66px;
             height: 1px;
-            top: 10px;  
+            top: 9px;  
             background-color: #313131;
         }  
         .module-cmt-list .cmt-list-type .cmt-list-number {
@@ -356,7 +356,7 @@
                         tuzkiNumber=1;
                     </script>
                     <div class="form-group">
-                        <textarea class="form-control" rows="5" @if(!session()->has('user')) placeholder="需要登陆后才能发表评论" disabled="disabled"@endif cols="50" style="overflow: hidden;overflow-wrap: break-word;;resize: horizontal;height: 181px;" ></textarea>
+                        <textarea class="form-control" rows="5" @if(!session()->has('user')) placeholder="需要登陆后才能发表评论" disabled="disabled"@endif cols="50" style="overflow: hidden;overflow-wrap: break-word;;resize: horizontal;" ></textarea>
                         <li class="pull-right comment-btn">
                             <input type="button" value="评 论" aid="{{ request()->id }}" pid="0" onclick="comment(this)">
                         </li>
@@ -481,39 +481,39 @@
             </div>
         </div>
     </article>
-     <script type="text/javascript">
-        /* 鼠标特效 */
-        var a_idx = 0;
-        jQuery(document).ready(function ($) {
-            $("html").click(function (e) {
-                var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
-                var $i = $("<span />").text(a[a_idx]);
-                a_idx = (a_idx + 1) % a.length;
-                var x = e.pageX,
-                    y = e.pageY;
-                $i.css({
-                    "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
-                    "top": y - 20,
-                    "left": x,
-                    "position": "absolute",
-                    "font-weight": "bold",
-                    color: randomColor()
-                });
-                $("body").append($i);
-                $i.animate({
-                    "top": y - 180,
-                    "opacity": 0
-                },
-                    1500,
-                    function () {
-                        $i.remove();
-                    });
+    <script type="text/javascript">
+    /* 鼠标特效 */
+    var a_idx = 0;
+    jQuery(document).ready(function ($) {
+        $("html").click(function (e) {
+            var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+            var $i = $("<span />").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            var x = e.pageX,
+                y = e.pageY;
+            $i.css({
+                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                color: randomColor()
             });
-            function randomColor() {
-                return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
-            }
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+                1500,
+                function () {
+                    $i.remove();
+                });
         });
-    </script>
+        function randomColor() {
+            return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
+        }
+    });
+</script>
 
 </body>
 

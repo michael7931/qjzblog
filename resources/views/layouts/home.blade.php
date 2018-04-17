@@ -173,6 +173,7 @@
             padding: 5px 2px;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
+            display:none;
         }
         .subnav a{
             display: block;
@@ -209,12 +210,12 @@
                         <ul class="nav" style="float: left;width: auto;">
                             <li style="position: relative;">
                                 <a href="/" onclick="recordId('/',0)">Home</a>
-                                <div class="subnav">
+                                <!-- <div class="subnav">
                                     <a href="">测试下拉ahhahhahhahahhah</a>
                                     <a href="">测试下拉</a>
                                     <a href="">测试下拉</a>
                                     <a href="">测试下拉</a>
-                                </div>
+                                </div> -->
                             </li>
                             @foreach($category as $v)
                             <li style="position: relative;">
@@ -260,7 +261,7 @@
     @yield('content')
     <!-- 左侧sidebar部分开始 -->
     <div class="sb-slidebar sb-left sb-style-overlay sb-momentum-scrolling">
-        <img src="http://qiniu.biteabc.com/me_top_bg.jpg" style="width: 100%;height: auto;">
+        <!-- <img src="http://qiniu.biteabc.com/me_top_bg.jpg" style="width: 100%;height: auto;"> -->
         <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
             <img src="{{ asset('images/close.png') }}" alt="Close">
         </div>
@@ -361,9 +362,6 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        $(function(){
-            $('.subnav').hide()
-        })
         $('.nav').children('li').mouseover(function(ev){
             $(ev.target).parent('li').children('.subnav').show()
             $(ev.target).parent('li').siblings().children('.subnav').hide()
