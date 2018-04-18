@@ -183,8 +183,12 @@ $(document).ready(function($) {
 	});
 });
 
-$('#talkWithMe').mouseover(function(){
-	$('.talkWithMe').css('display','block')
-}).mouseleave(function(){
-	$('.talkWithMe').css('display','none')
+// $('#talkWithMe').mouseover(function(){
+// 	$('.talkWithMe').css('display','block')
+// }).mouseleave(function(){
+// 	$('.talkWithMe').css('display','none')
+// })
+
+$('#talkWithMe').click(function(){
+	window.location.href = '/share.html'
 })

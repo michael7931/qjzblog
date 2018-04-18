@@ -357,7 +357,13 @@
                     </script>
                     <div class="form-group">
                         <textarea class="form-control" rows="5" @if(!session()->has('user')) placeholder="需要登陆后才能发表评论" disabled="disabled"@endif cols="50" style="overflow: hidden;overflow-wrap: break-word;;resize: horizontal;" ></textarea>
-                        <li class="pull-right comment-btn">
+                        <li class="b-emote" style="display:inline-block;width:60%;">
+                            <i class="fa fa-smile-o fa-2x" @if(session()->has('user')) onclick="getTuzki(this)"@endif style="color:#1999ce;display:inline-block;position:relative;top:7px;"></i>
+                            <input class="form-control b-email" type="text" name="email" placeholder="接收回复的email地址" value="{{ session('user.email') }}" @if(!session()->has('user')) disabled="disabled"@endif style="display:inline-block;width:70%;">
+                            <div class="b-tuzki">
+                            </div>
+                        </li>
+                        <li class="pull-right comment-btn" style="display:inline-block;">
                             <input type="button" value="评 论" aid="{{ request()->id }}" pid="0" onclick="comment(this)">
                         </li>
                         <!-- 评论列表 -->

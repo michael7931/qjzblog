@@ -50,10 +50,11 @@
                                 </div>
                                 <!-- Post Excerpt -->
                                 <div class="excerpt typo">
-                                    <a href="{{ url('article', [$v->id]) }}" target="_blank"></a>
-                                    <p>{{ $v->description }}
-                                        <br>
-                                    </p>
+                                    <a href="{{ url('article', [$v->id]) }}" target="_blank">
+                                        <p>{{ $v->description }}
+                                            <br>
+                                        </p>
+                                    </a>
                                 </div>
                                 <!-- Post Tags -->
                                 <div class="tags">

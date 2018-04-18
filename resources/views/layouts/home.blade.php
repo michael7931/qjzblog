@@ -243,11 +243,11 @@
                              <!-- 进群讨论 -->
                             <div style="display: inline-block;line-height: 60px;">
                                 <img src="{{ asset('images/concat.png') }}" id="talkWithMe">
-                                <div class="talkWithMe">
+                                <!-- <div class="talkWithMe">
                                     <img src=" {{asset('images/up.png')}} " id="up">
                                     <p>扫一扫,进群交流</p>
                                     <img src="{{ asset('images/QQ.jpg') }}" id="code">
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </nav>

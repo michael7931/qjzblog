@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="./css/home/index.css"> -->
+    <link rel="stylesheet" href="./statics/bootstrap-3.3.5/css/bootstrap.min.css">
+    <script src="./js/home/jquery.js"></script>
+    <title>进群交流</title>
+</head>
+<style>
+    body {
+        width: 100%;
+        height: 100%;
+    }
+    h2{
+        text-align: center;
+    }
+    #b-foot{
+        position: fixed;
+        bottom: 0;
+        /* background-color: #1999ec; */
+    }
+    ul li{
+        list-style: none;
+    }
+    #rqcode{
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 40px;
+        flex-wrap: wrap;
+    }
+    #rqcode div{
+        width: 150px;
+        height: auto;
+        margin: 0 20px;
+    }
+    #rqcode div img{
+        width: 150px;
+        height: auto;
+    }
+    #rqcode div p{
+        font-size: 18px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h2>扫一扫，进群交流</h2>
+        <div id="rqcode">
+            <div>
+                <img src="./images/QQ.jpg" alt="">
+                <p>QQ群</p>
+            </div>
+            <div>
+                <img src="./images/QQ.jpg" alt="">
+                <p>QQ群</p>
+            </div>
+            <div>
+                <img src="./images/QQ.jpg" alt="">
+                <p>QQ群</p>
+            </div>
+            <div>
+                <img src="./images/QQ.jpg" alt="">
+                <p>QQ群</p>
+            </div>
+            <div>
+                <img src="./images/QQ.jpg" alt="">
+                <p>QQ群</p>
+            </div>
+            <div>
+                <img src="./images/QQ.jpg" alt="">
+                <p>QQ群</p>
+            </div>
+            <div>
+                <img src="./images/QQ.jpg" alt="">
+                <p>QQ群</p>
+            </div>
+            <div>
+                <img src="./images/QQ.jpg" alt="">
+                <p>QQ群</p>
+            </div>
+            <div>
+                <img src="./images/QQ.jpg" alt="">
+                <p>QQ群</p>
+            </div>
+            <div>
+                <img src="./images/QQ.jpg" alt="">
+                <p>QQ群</p>
+            </div>
+        </div>
+    </div>
+    <!-- 通用底部文件开始 -->
+    <footer id="b-foot" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ul>
+            <li class="text-center">
+                Copyright © 2016-2018 <a href="http://www.qujiazhen.com/">qujiazhen.com</a>  All Right Reserived ICP证：浙ICP备17058933号-1 
+            </li>
+            <li class="text-center">
+                <a rel="nofollow" href="https://github.com/michael7931/qjzblog.git" target="_blank">免费开源博客</a>
+                联系邮箱：qujiazhen@qujiazhen.com 
+            </li>
+        </ul>
+        <div class="b-h-20"></div>
+        <a class="go-top fa fa-angle-up animated jello" href="javascript:;" onclick="goTop()"></a>
+    </footer>
+    <!-- 通用底部文件结束 -->
+    <script type="text/javascript">
+        /* 鼠标特效 */
+        var a_idx = 0;
+        jQuery(document).ready(function ($) {
+            $("body").click(function (e) {
+                var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+                var $i = $("<span />").text(a[a_idx]);
+                a_idx = (a_idx + 1) % a.length;
+                var x = e.pageX,
+                    y = e.pageY;
+                $i.css({
+                    "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+                    "top": y - 20,
+                    "left": x,
+                    "position": "absolute",
+                    "font-weight": "bold",
+                    color: randomColor()
+                });
+                $("body").append($i);
+                $i.animate({
+                    "top": y - 180,
+                    "opacity": 0
+                },
+                    1500,
+                    function () {
+                        $i.remove();
+                    });
+            });
+            function randomColor() {
+                return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
+            }
+        });
+    </script>
+</body>
+<script color="25,153,206" opacity="0.8" count="120" src="./js/home/canvas-nest.js"></script>
+<script src="./statics/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+
+</html>
